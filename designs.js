@@ -1,7 +1,7 @@
-var inputHeight;
-var inputWidth;
-var pixelCanvas;
-var cellColor;
+let inputHeight;
+let inputWidth;
+let pixelCanvas;
+let cellColor;
 
 pixelCanvas = $('#pixelCanvas');
 
@@ -25,17 +25,17 @@ $('#sizePicker').on('submit', function(event) {
 
 // Generates the grid
 function makeGrid(inputHeight, inputWidth) {
-    for (var i = 0; i < inputHeight; i++) {
+    for (let i = 0; i < inputHeight; i++) {
         // Insert a row into the grid and give it a unique ID
         pixelCanvas.append('<tr id="row-' +
                             (i + 1).toString() +
                             '"></tr>');
 
         // Select current row
-        var currentRow = $('#row-' + (i + 1).toString());
+        let currentRow = $('#row-' + (i + 1).toString());
 
         // Insert cells into the current row and give each cell a unique ID
-        for (var j = 0; j < inputWidth; j++) {
+        for (let j = 0; j < inputWidth; j++) {
             currentRow.append('<td id="cell-' +
                             (i + 1).toString() +'-' +
                             (j + 1).toString() +
@@ -52,8 +52,8 @@ function changeCellColor() {
 
 // Listen to each cell in the grid for a click
 function attachEventListeners(inputHeight, inputWidth) {
-    for (var i = 0; i < inputHeight; i++) {
-        for (var j = 0; j < inputWidth; j++) {
+    for (let i = 0; i < inputHeight; i++) {
+        for (let j = 0; j < inputWidth; j++) {
             $('#cell-' + (i + 1).toString() + '-' + (j + 1).toString()).on('click', changeCellColor);
         }
     }
